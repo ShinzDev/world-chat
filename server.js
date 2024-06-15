@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 wss.on('connection', (ws) => {
     ws.on('message', (message) => {
-        console.log(`Received: ${message}`);
+        // console.log(`Received: ${message}`);
         // Broadcast the message to all clients
         wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
@@ -53,7 +53,7 @@ wss.on('connection', (ws) => {
     ws.send('Welcome to the chat!');
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
